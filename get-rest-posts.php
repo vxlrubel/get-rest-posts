@@ -21,7 +21,13 @@
     
     private static $instance;
 
+    // set plugin version
+    private static $version = '1.0.0';
+
     public function __construct(){
+
+        // define constant
+        $this->define_constant();
 
         // check wp version
         add_action( 'admin_init', [ $this, 'check_wp_version' ] );
@@ -79,6 +85,17 @@
             self::$instance = new self();
         }
         return self::$instance;
+    }
+
+    /**
+     * define constact
+     *
+     * @return void
+     */
+    public function define_constant(){
+        define( 'GRP_VERSION', self::$version );
+        define( 'GRP_ASSETS', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
+        define( 'GRP_ASSETS_IMG', trailingslashit( GRP_ASSETS . 'img' ) );
     }
  }
 

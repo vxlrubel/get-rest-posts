@@ -53,9 +53,8 @@ defined('ABSPATH') || exit;
 
         }
 
-
         $rendered_post  = "<div class=\"grp-rendered-posts\">\n";
-
+        
         $rendered_post .= sprintf(
             '<h2 class="post-title">%s</h2>',
             esc_html__( 'Latest Post', 'get-rest-posts' )

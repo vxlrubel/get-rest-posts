@@ -23,28 +23,24 @@ defined('ABSPATH') || exit;
      * @return void
      */
     public function render_posts( $atts ){
+        $page = isset($_GET['_page']) ? absint($_GET['_page']) : 1;
         $pairs = [
-            'per_page' => 3
+            'per_page' => 10,
+            'page'     => $page,
         ];
 
-        $page      = (get_query_var('page')) ? get_query_var('page') : 1;
         $atts      = shortcode_atts( $pairs, $atts, 'get_rest_posts' );
+
         $cache_key = 'get_rest_posts_' . md5(serialize($atts));
         $posts     = wp_cache_get($cache_key, 'get_rest_posts');
 
         if ( $posts === false ){
             $api_url  = home_url( 'wp-json/wp/v2/posts' );
-            $api_url .= "?page={$page}&per_page={$atts['per_page']}";
+            $api_url .= "?page={$atts['page']}&per_page={$atts['per_page']}";
 
             $response     = wp_remote_get( $api_url );
             $total_posts  = $response['headers']['X-WP-Total'];
             $total_page   = $response['headers']['X-WP-TotalPages'];
-            // $current_page = $atts['page'];
-
-            // $get_page = get_query_var( 'paged' );
-
-
-            // echo $get_page;
 
             if ( is_wp_error( $response ) ){
                 return 'Error fetching posts.';
@@ -88,9 +84,33 @@ defined('ABSPATH') || exit;
             // pagination markup
             if ( $total_posts > $atts['per_page'] ) {
                 $pagination  = '<div class="grp-pagination">';
-                for ( $i=1; $i <= $total_page; $i++ ) { 
-                    $pagination .= '<a href="' . esc_url(add_query_arg('page', $i)) . '" class="' . ($i === $page ? 'current' : '') . '">' . $i . '</a>';
+
+                if ( $atts['page'] > 1 && $atts['page'] <= $total_page ){
+                    $pagination .= sprintf(
+                        '<a href="%1$s">%2$s</a>',
+                        '?_page=' . ( $atts['page'] - 1 ),
+                        '&lt;'
+                    );
                 }
+
+                for ( $i=1; $i <= $total_page; $i++ ) { 
+                    $current = ( $i == $atts['page'] ) ? 'current' : '';
+                    $pagination .= sprintf(
+                        '<a href="%1$s" class="%2$s">%3$s</a>',
+                        '?_page=' . $i,
+                        $current,
+                        $i
+                    );
+                }
+
+                if ( $total_page > $atts['page'] ){
+                    $pagination .= sprintf('
+                        <a href="%1$s">%2$s</a>',
+                        '?_page=' . ( $atts['page'] + 1 ),
+                        '&gt;'
+                    );
+                }
+                
                 $pagination .= '</div>';
 
                 $rendered_post .= $pagination;

@@ -35,3 +35,29 @@
         width: 70%;
     }
 }
+.grp-pagination {
+	display: flex;
+	flex-wrap: wrap;
+}
+.grp-pagination > a{
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    text-decoration: none !important;
+    color: #444;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    margin: 0 5px 5px 0;
+    font-weight: 600;
+    font-size: 13px;
+}
+.grp-pagination > a.current{
+    background-color: #2d98da;
+    color: #ffffff;
+}
+
+.grp-pagination > a:not(.current):hover{
+    background-color: #45aaf2;
+    color: #ffffff;
+}

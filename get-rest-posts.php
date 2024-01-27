@@ -18,8 +18,8 @@
  defined('ABSPATH') || exit;
 
  use grp\classes\Assets;
- 
  use grp\classes\Render_Posts;
+ use grp\classes\Admin_Menu;
  
  //  include autoload file
  if ( file_exists( dirname(__FILE__) . '/inc/autoload.php' ) ){
@@ -47,7 +47,11 @@
         // enaueue assets
         new Assets;
 
+        // render posts
         new Render_Posts;
+
+        // create admin menu
+        new Admin_Menu; 
     }
 
     /**

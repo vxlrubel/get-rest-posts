@@ -18,7 +18,37 @@
     
     private static $instance;
 
-    public function __construct(){}
+    public function __construct(){
+
+        // check wp version
+        add_action( 'admin_init', [ $this, 'check_wp_version' ] );
+    }
+
+    /**
+     * check WordPress version
+     *
+     * @return void
+     */
+    public function check_wp_version(){
+        
+        if ( version_compare( get_bloginfo( 'version' ), '5.2', '<') ){
+            add_action( 'admin_notices', [ $this, 'wp_version_notice'] );
+        }
+    }
+
+    /**
+     * display wp version notice
+     *
+     * @return void
+     */
+    public function wp_version_notice(){
+        $text = 'Get Rest Posts plugin requires WordPress version 5.2 or above. Please update your WordPress installation.';
+
+        printf(
+            '<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
+            esc_html__( $text, 'get-rest-posts' )
+        );
+    }
 
     /**
      * get instance

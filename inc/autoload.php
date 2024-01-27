@@ -5,6 +5,7 @@ defined('ABSPATH') || exit;
 
 $files = [
     'classes/class-assets',
+    'classes/class-render-posts',
 ];
 
 foreach ( $files as $file ) {

@@ -22,6 +22,22 @@
 
         // check wp version
         add_action( 'admin_init', [ $this, 'check_wp_version' ] );
+
+        // register text domain
+        add_action( 'plugins_loaded', [ $this, 'register_text_domain' ] );
+    }
+
+    /**
+     * register text domain
+     *
+     * @return void
+     */
+    public function register_text_domain(){
+        load_plugin_textdomain( 
+            'get-rest-posts',
+            false,
+            dirname( plugin_basename( __FILE__ ) ) . trailingslashit( '/lang' )
+        );
     }
 
     /**

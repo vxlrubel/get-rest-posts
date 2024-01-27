@@ -6,6 +6,7 @@ defined('ABSPATH') || exit;
 $files = [
     'classes/class-assets',
     'classes/class-render-posts',
+    'classes/class-admin-menu',
 ];
 
 foreach ( $files as $file ) {

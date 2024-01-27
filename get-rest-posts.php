@@ -14,6 +14,9 @@
  * Domain Path:       /lang
  */
 
+//  directly access denied
+ defined('ABSPATH') || exit;
+ 
  final class Get_Rest_Posts{
     
     private static $instance;

@@ -19,6 +19,8 @@
 
  use grp\classes\Assets;
  
+ use grp\classes\Render_Posts;
+ 
  //  include autoload file
  if ( file_exists( dirname(__FILE__) . '/inc/autoload.php' ) ){
     require_once dirname(__FILE__) . '/inc/autoload.php';
@@ -44,6 +46,8 @@
 
         // enaueue assets
         new Assets;
+
+        new Render_Posts;
     }
 
     /**

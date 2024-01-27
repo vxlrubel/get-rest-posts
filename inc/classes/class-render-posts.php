@@ -24,20 +24,27 @@ defined('ABSPATH') || exit;
      */
     public function render_posts( $atts ){
         $pairs = [
-            'page'     => 1,
-            'per_page' => 5
+            'per_page' => 3
         ];
+
+        $page      = (get_query_var('page')) ? get_query_var('page') : 1;
         $atts      = shortcode_atts( $pairs, $atts, 'get_rest_posts' );
         $cache_key = 'get_rest_posts_' . md5(serialize($atts));
         $posts     = wp_cache_get($cache_key, 'get_rest_posts');
 
         if ( $posts === false ){
             $api_url  = home_url( 'wp-json/wp/v2/posts' );
-            $api_url .= "?page={$atts['page']}&per_page={$atts['per_page']}";
+            $api_url .= "?page={$page}&per_page={$atts['per_page']}";
 
-            $response = wp_remote_get( $api_url );
+            $response     = wp_remote_get( $api_url );
+            $total_posts  = $response['headers']['X-WP-Total'];
+            $total_page   = $response['headers']['X-WP-TotalPages'];
+            // $current_page = $atts['page'];
+
+            // $get_page = get_query_var( 'paged' );
 
 
+            // echo $get_page;
 
             if ( is_wp_error( $response ) ){
                 return 'Error fetching posts.';
@@ -58,14 +65,14 @@ defined('ABSPATH') || exit;
                 if ( $post['status'] == 'publish' ){
 
                     $title         = $post['title']['rendered'];
-                    $permalink     = $post['link'];
+                    $permalink     = get_permalink( $post['id'] );
                     $thumbnail_url = get_the_post_thumbnail_url( $post['id'] );
                     $excerpt       = $post['excerpt']['rendered'];
 
                     $rendered_post .= '
                         <div class="rendered-posts">
                             <div class="grp-thumb">
-                                <img src="' . esc_html( $thumbnail_url ) . '" alt="image">
+                                <img src="' . esc_url( $thumbnail_url ) . '" alt="image">
                             </div>
                             <div class="grp-details">
                                 <h2>' . esc_html( $title ) . '</h2>
@@ -76,7 +83,19 @@ defined('ABSPATH') || exit;
                     ';
 
                 }
-            }    
+            }
+
+            // pagination markup
+            if ( $total_posts > $atts['per_page'] ) {
+                $pagination  = '<div class="grp-pagination">';
+                for ( $i=1; $i <= $total_page; $i++ ) { 
+                    $pagination .= '<a href="' . esc_url(add_query_arg('page', $i)) . '" class="' . ($i === $page ? 'current' : '') . '">' . $i . '</a>';
+                }
+                $pagination .= '</div>';
+
+                $rendered_post .= $pagination;
+            }
+                
         }else{
             $rendered_post .= sprintf('<h2 class="grp-no-post-found">%s</h2>', esc_html__( 'No Post Found.', 'get-rest-posts' ) );
         }
@@ -84,6 +103,9 @@ defined('ABSPATH') || exit;
         $rendered_post .= "<div>\n";
 
         return $rendered_post;
+        // echo "<pre>";
+        // print_r( $response );
+        // echo "</pre>";
 
         
     }

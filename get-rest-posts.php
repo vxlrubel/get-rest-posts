@@ -17,11 +17,13 @@
 //  directly access denied
  defined('ABSPATH') || exit;
 
+ use grp\classes\Assets;
+ 
  //  include autoload file
  if ( file_exists( dirname(__FILE__) . '/inc/autoload.php' ) ){
     require_once dirname(__FILE__) . '/inc/autoload.php';
  }
- 
+
  final class Get_Rest_Posts{
     
     private static $instance;
@@ -39,6 +41,9 @@
 
         // register text domain
         add_action( 'plugins_loaded', [ $this, 'register_text_domain' ] );
+
+        // enaueue assets
+        new Assets;
     }
 
     /**

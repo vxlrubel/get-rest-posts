@@ -42,7 +42,7 @@ defined('ABSPATH') || exit;
      */
     public function render_page_content(){
         ?>
-        <div class="wrap">
+        <div class="wrap grp-wrap">
             <h1 class="wp-heading-inline">Get Rest Posts</h1>
             <hr class="wp-header-end">
 

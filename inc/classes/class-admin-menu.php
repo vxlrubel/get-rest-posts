@@ -45,6 +45,31 @@ defined('ABSPATH') || exit;
         <div class="wrap">
             <h1 class="wp-heading-inline">Get Rest Posts</h1>
             <hr class="wp-header-end">
+
+            <div class="inner-wrap">
+                <div class="options">
+                    <form action="">
+                        <p>
+                            <label>
+                                Set the title:
+                                <input type="text" class="widefat" name="set_title">
+                            </label>
+                        </p>
+                        <div>
+                            <label for="post-per-page">Posts Per Page:</label>
+                            <div class="grp-count">
+                                <a href="javascript:void(0)"><span class="dashicons dashicons-minus"></span></a>
+                                <input type="number" min="5" max="50" id="post-per-page" name="post_per_page">
+                                <a href="javascript:void(0)"><span class="dashicons dashicons-plus-alt2"></span></a>
+                            </div>
+                        </div>
+                        <p class="submit">
+                            <input type="submit" class="button button-primary" value="Save Changes">
+                        </p>
+                    </form>
+                </div>
+                <div class="author-info"></div>
+            </div>
         </div>
         <?php
     }

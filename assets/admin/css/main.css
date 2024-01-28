@@ -61,6 +61,29 @@
 	justify-content: space-between;
 	margin-top: 30px !important;
 }
+.grp-wrap .author-info img {
+    max-width: 100%;
+}
+
+/* author info */
+
+.grp-wrap .social a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: #2271b1;
+    transition: border-radius 0.25s ease-in-out;
+    border-radius: 12px 0 12px 0;
+}
+.grp-wrap .social a:hover{
+    border-radius: 0 12px 0 12px;
+}
 @media(min-width:576px){
     .grp-wrap .inner-wrap{
         justify-content: space-between;

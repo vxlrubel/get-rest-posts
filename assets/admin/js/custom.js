@@ -4,7 +4,15 @@
 
     class GetRestPostsAdminScript{
         constructor(){
-            // do something
+            this.counter();
+        }
+
+        counter(){
+            $('.grp-count').on('click', 'a', function(e){
+                e.preventDefault();
+                alert( $(this).attr('class') );
+                console.log( $(this) );
+            });
         }
     }
 

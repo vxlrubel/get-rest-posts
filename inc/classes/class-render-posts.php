@@ -55,10 +55,10 @@ defined('ABSPATH') || exit;
         }
 
         $rendered_post  = "<div class=\"grp-rendered-posts\">\n";
-        
+        $get_title      = get_option( '_set_grp_title', 'Latest Post' );
         $rendered_post .= sprintf(
             '<div class="title-parent"><h2 class="post-title">%s</h2><div class="toggle-icon"><a href="javascript:void(0)" class="toggle-list active"><span class="dashicons dashicons-list-view"></span></a><a href="javascript:void(0)" class="toggle-grid"><span class="dashicons dashicons-grid-view"></span></a></div></div>',
-            esc_html__( 'Latest Post', 'get-rest-posts' )
+            esc_html__( $get_title, 'get-rest-posts' )
         );
 
         if ( count( $posts ) > 0 ){

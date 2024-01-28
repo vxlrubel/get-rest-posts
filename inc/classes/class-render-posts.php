@@ -24,8 +24,9 @@ defined('ABSPATH') || exit;
      */
     public function render_posts( $atts ){
         $page = isset($_GET['_page']) ? absint($_GET['_page']) : 1;
+        $get_count  = (int) get_option( '_set_grp_count', 10 );
         $pairs = [
-            'per_page' => 10,
+            'per_page' => $get_count,
             'page'     => $page,
         ];
 

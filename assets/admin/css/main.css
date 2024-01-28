@@ -1,0 +1,29 @@
+.grp-wrap * {
+    box-sizing: border-box !important;
+}
+.grp-wrap .grp-count {
+	display: inline-flex;
+	align-items: center;
+    border: 1px solid #dee2e6;
+}
+.grp-wrap .grp-count a {
+    text-decoration: none;
+    color: #444;
+}
+.grp-wrap .grp-count > * {
+    border: none !important;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 0 !important;
+}
+.grp-wrap .grp-count #post-per-page::-webkit-inner-spin-button,
+.grp-wrap .grp-count #post-per-page::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.grp-wrap .grp-count #post-per-page {
+	-moz-appearance: textfield;
+}
+.grp-wrap .grp-count #post-per-page:focus{
+    box-shadow: none;
+}

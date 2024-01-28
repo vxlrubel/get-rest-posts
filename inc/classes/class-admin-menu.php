@@ -93,7 +93,22 @@ defined('ABSPATH') || exit;
                     </form>
                 </div>
                 <div class="author-info">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem ad quibusdam consequatur quod excepturi eaque obcaecati sapiente fugiat blanditiis laboriosam modi, officiis sit quae hic. Harum accusantium assumenda sed quisquam non cupiditate corrupti quae, molestiae, omnis id minus, ipsam animi autem dolor laboriosam eum sit atque similique aliquam possimus beatae?
+                    <img src="https://github.com/vxlrubel/vxlrubel/raw/main/assets/rubel-mahmud.jpg" alt="Rubel Mahmud">
+                    <h2>Author Information</h2>
+                    <p>
+                        <strong>Name: </strong> <span>Rubel Mahmud</span>
+                    </p>
+                    <p>Hi, I am a professional WordPress developer. I have created so many plugins and themes for my clients. If you like my plugin then hire me for your project.</p>
+                    <h4>Connect with:</h4>
+                    
+                    <div class="social">
+                        <a href="https://www.facebook.com/rubel.ft.me" target="_blank"><span class="dashicons dashicons-facebook-alt"></span></a>
+                        <a href="https://www.linkedin.com/in/vxlrubel/" target="_blank"><span class="dashicons dashicons-linkedin"></span></a>
+                        <a href="https://twitter.com/vxlrubel" target="_blank"><span class="dashicons dashicons-twitter"></span></a>
+                        <a href="https://www.instagram.com/vxlrubel/" target="_blank"><span class="dashicons dashicons-instagram"></span></a>
+                        <a href="https://www.reddit.com/user/vxlrubel" target="_blank"><span class="dashicons dashicons-reddit"></span></a>
+                        <a href="https://api.whatsapp.com/send?phone=8801625601619&amp;text=Hi, Rubel!" target="_blank"><span class="dashicons dashicons-whatsapp"></span></a>
+                    </div>
                 </div>
             </div>
         </div>

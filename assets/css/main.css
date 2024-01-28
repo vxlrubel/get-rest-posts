@@ -61,3 +61,26 @@
     background-color: #45aaf2;
     color: #ffffff;
 }
+.title-parent {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-parent .post-title{
+    margin: 0;
+}
+.title-parent .toggle-icon a{
+    display: inline-flex;
+    padding: 5px;
+    text-decoration: none;
+    color: #444;
+    opacity: 0.5;
+}
+.title-parent .toggle-icon a:hover{
+    opacity: 0.75;
+}
+.title-parent .toggle-icon a.active{
+    opacity: 1;
+}

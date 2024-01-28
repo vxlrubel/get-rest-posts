@@ -78,9 +78,13 @@ defined('ABSPATH') || exit;
                         <div class="counter-parent">
                             <label for="post-per-page">Posts Per Page:</label>
                             <div class="grp-count">
-                                <a href="javascript:void(0)"><span class="dashicons dashicons-minus"></span></a>
+                                <a href="javascript:void(0)" class="minus">
+                                    <span class="dashicons dashicons-minus"></span>
+                                </a>
                                 <input type="number" min="5" max="50" id="post-per-page" name="post_per_page" value="<?php echo esc_attr( $get_count ); ?>">
-                                <a href="javascript:void(0)"><span class="dashicons dashicons-plus-alt2"></span></a>
+                                <a href="javascript:void(0)" class="minus">
+                                    <span class="dashicons dashicons-plus-alt2"></span>
+                                </a>
                             </div>
                         </div>
                         <p class="submit">

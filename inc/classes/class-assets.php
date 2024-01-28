@@ -15,7 +15,35 @@ defined('ABSPATH') || exit;
  class Assets{
 
     public function __construct(){
+
+        // register frontend script
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+
+        // enqueue admin script
+        add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_scripts' ] );
+    }
+
+    /**
+     * register admin script
+     *
+     * @return void
+     */
+    public function register_admin_scripts(){
+        wp_enqueue_style(
+            'grp-admin-style',
+            GRP_ASSETS . 'admin/css/main.css',
+            '',
+            GRP_VERSION,
+            'all'
+        );
+
+        wp_enqueue_script(
+            'grp-admin-script',
+            GRP_ASSETS . 'admin/js/custom.js',
+            ['jquery'],
+            GRP_VERSION,
+            true
+        );
     }
 
     /**

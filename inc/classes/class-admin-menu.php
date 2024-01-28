@@ -55,7 +55,7 @@ defined('ABSPATH') || exit;
                                 <input type="text" class="widefat" name="set_title">
                             </label>
                         </p>
-                        <div>
+                        <div class="counter-parent">
                             <label for="post-per-page">Posts Per Page:</label>
                             <div class="grp-count">
                                 <a href="javascript:void(0)"><span class="dashicons dashicons-minus"></span></a>
@@ -68,7 +68,9 @@ defined('ABSPATH') || exit;
                         </p>
                     </form>
                 </div>
-                <div class="author-info"></div>
+                <div class="author-info">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem ad quibusdam consequatur quod excepturi eaque obcaecati sapiente fugiat blanditiis laboriosam modi, officiis sit quae hic. Harum accusantium assumenda sed quisquam non cupiditate corrupti quae, molestiae, omnis id minus, ipsam animi autem dolor laboriosam eum sit atque similique aliquam possimus beatae?
+                </div>
             </div>
         </div>
         <?php

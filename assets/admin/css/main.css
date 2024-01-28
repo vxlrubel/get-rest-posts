@@ -41,6 +41,10 @@
 .grp-wrap .grp-count #post-per-page:focus{
     box-shadow: none;
 }
+.grp-wrap .grp-count > a:active{
+    background-color: #2271b1;
+    color: white;
+}
 .grp-wrap .inner-wrap {
 	display: flex;
     flex-wrap: wrap;

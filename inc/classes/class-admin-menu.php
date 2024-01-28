@@ -81,7 +81,7 @@ defined('ABSPATH') || exit;
                                 <a href="javascript:void(0)" class="minus">
                                     <span class="dashicons dashicons-minus"></span>
                                 </a>
-                                <input type="number" min="5" max="50" id="post-per-page" name="post_per_page" value="<?php echo esc_attr( $get_count ); ?>">
+                                <input type="number" step="1" min="5" max="50" id="post-per-page" name="post_per_page" value="<?php echo esc_attr( $get_count ); ?>">
                                 <a href="javascript:void(0)" class="plus">
                                     <span class="dashicons dashicons-plus-alt2"></span>
                                 </a>

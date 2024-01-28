@@ -56,7 +56,7 @@ defined('ABSPATH') || exit;
         $rendered_post  = "<div class=\"grp-rendered-posts\">\n";
         
         $rendered_post .= sprintf(
-            '<h2 class="post-title">%s</h2>',
+            '<div class="title-parent"><h2 class="post-title">%s</h2><div class="toggle-icon"><a href="javascript:void(0)" class="toggle-list active"><span class="dashicons dashicons-list-view"></span></a><a href="javascript:void(0)" class="toggle-grid"><span class="dashicons dashicons-grid-view"></span></a></div></div>',
             esc_html__( 'Latest Post', 'get-rest-posts' )
         );
 

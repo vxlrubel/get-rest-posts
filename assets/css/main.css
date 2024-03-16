@@ -14,7 +14,9 @@
 .grp-rendered-posts .rendered-posts > div {
     padding: 0 15px !important;
 }
-
+.grp-rendered-posts .rendered-posts .grp-thumb img {
+	max-width: 100%;
+}
 .grp-rendered-posts .rendered-posts .grp-thumb ,
 .grp-rendered-posts .rendered-posts .grp-details {
     width: 100%;
